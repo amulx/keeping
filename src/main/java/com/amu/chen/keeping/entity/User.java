@@ -1,20 +1,44 @@
 package com.amu.chen.keeping.entity;
 
-public class User {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler","fieldHandler"})
+@Entity
+public class User {
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column(name = "username",nullable = true,length = 32)
     private String username;
 
+    @Column(name = "password",nullable = true,length = 32)
     private String password;
 
+    @Column(name = "age",nullable = true,length = 11)
     private Integer age;
 
     /*
      * 性别 1=男 2=女 3=保密
      */
+    @Column(name = "sex",nullable = true,length = 11)
     private Integer sex;
 
     public String getUsername() {
         return username;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setUsername(String username) {
