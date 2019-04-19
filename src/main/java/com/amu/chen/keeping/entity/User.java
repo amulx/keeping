@@ -2,11 +2,21 @@ package com.amu.chen.keeping.entity;
 
 public class User {
 
+    private Long id;
+
     private String username;
 
     private String password;
 
     private Integer age;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     /*
      * 性别 1=男 2=女 3=保密
